@@ -1,0 +1,56 @@
+.app-container {
+  background-color: #1b1f38;
+  color: #fff;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.left-column {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.weekly-forecast {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+h3,
+h4 {
+  color: #e1e4f1;
+}
+
+p {
+  color: #a3a7c2;
+}
+
+/* Style for each component for better separation */
+.current-weather,
+.air-conditions,
+.today-forecast,
+.weekly-forecast {
+  margin-bottom: 20px;
+}
+
+/* Weekly forecast table */
+.weekly-forecast-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.weekly-forecast-item:last-child {
+  border-bottom: none;
+}
+
+.weekly-forecast-day {
+  font-weight: bold;
+  color: #cdd3f4;
+}
+.weekly-forecast-temp,
+.weekly-forecast-icon,
+.weekly-forecast-wind {
+  color: #a3a7c2;
+}

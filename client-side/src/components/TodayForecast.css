@@ -1,0 +1,42 @@
+.today-forecast {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.hourly-forecast-container {
+  display: flex;
+  overflow-x: auto; /* Enables horizontal scroll */
+  padding: 10px 0;
+}
+
+.hour-box {
+  min-width: 90px; /* Width of each hour box */
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 10px;
+  margin-right: 10px;
+  text-align: center;
+  color: #e1e4f1;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hour {
+  font-weight: bold;
+  color: #cdd3f4;
+}
+
+.temperature,
+.irradiance {
+  color: #a3a7c2;
+  margin-top: 5px;
+}
+
+.weather-icon {
+  font-size: 20px;
+  margin-top: 5px;
+}

@@ -1,0 +1,15 @@
+.tooltip {
+  position: absolute;
+  text-align: center;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  font: 12px sans-serif;
+  background: lightgrey;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: 0;
+  pointer-events: none; /* Prevents tooltip from blocking interactions */
+  z-index: 10;
+}
