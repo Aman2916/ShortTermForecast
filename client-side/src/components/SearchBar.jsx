@@ -39,15 +39,19 @@ const SearchBar = ({ onSearch }) => {
   //   };
 
   return (
-    <Form className="d-flex mb-4">
+    <Form className="flex bg-white/5 mb-4 rounded-2xl">
       <Form.Control
         type="text"
         placeholder="Enter city"
         value={city}
         onChange={(e) => setCity(e.target.value)}
+        className="relative block flex-auto rounded-l-full border-[1.4px] border-white bg-white/5 px-3 py-[0.4rem] font-normal text-white outline-none focus:bg-white/5 focus:outline-none transition duration-200 placeholder:text-white"
       />
-      <Button variant="primary" onClick={handleSearch}>
-        Search
+      <Button
+        onClick={handleSearch}
+        className="relative px-4 rounded-r-full border-[1.4px] border-l-0 border-white p-2 bg-transparent/40 text-white inset-0 backdrop-blur-md font-medium uppercase text-primary transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+      >
+        Start
       </Button>
     </Form>
   );

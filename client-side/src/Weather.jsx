@@ -37,32 +37,36 @@ function Weather() {
   };
 
   return (
-    <Container fluid className="app-container">
-      <Row className="justify-content-center mt-4">
-        <Col md={8}>
-          <SearchBar onSearch={handleSearch} />
-        </Col>
-      </Row>
+    <div className="min-h-screen">
+      <div className="w-full">
+        <div className="w-full flex justify-center items-center text-center pt-4">
+          <div>
+            <SearchBar onSearch={handleSearch} />
+          </div>
+        </div>
 
-      {weatherData && (
-        <Row className="mt-4">
-          {/* Left Column - Current Weather, Air Conditions, Today's Forecast */}
-          <Col md={8}>
-            <div className="left-column">
-              <CurrentWeather weatherData={weatherData} location={location} />
-              <AirConditions weatherData={weatherData} />
-              <TodayForecast weatherData={weatherData} />
+        {weatherData && (
+          <div className="p-4 pt-0 min-h-full flex w-full">
+            {/* Left Column - Current Weather, Air Conditions, Today's Forecast */}
+            <div md={4} className="w-[65%] min-h-full">
+              <div className="min-h-full flex flex-col justify-between">
+                <CurrentWeather weatherData={weatherData} location={location} />
+                <AirConditions weatherData={weatherData} />
+                <TodayForecast weatherData={weatherData} />
+              </div>
             </div>
-          </Col>
 
-          {/* Right Column - Weekly Forecast */}
-          <Col md={4}>
-            <WeeklyForecast weatherData={weatherData} />
-          </Col>
-        </Row>
-      )}
-      <PredictPVPower />
-    </Container>
+            {/* Right Column - Weekly Forecast */}
+            <div className="w-[35%] min-h-full">
+              <WeeklyForecast weatherData={weatherData} />
+            </div>
+          </div>
+        )}
+      </div>
+      <div className="w-full flex justify-center">
+        <PredictPVPower />
+      </div>
+    </div>
   );
 }
 

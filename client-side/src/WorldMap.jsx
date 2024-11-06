@@ -27,7 +27,7 @@ const WorldMap = () => {
     const tooltip = d3
       .select(tooltipRef.current)
       .style("position", "absolute")
-      .style("background-color", "black")
+      .style("background-color", "white")
       .style("border", "1px solid #d3d3d3")
       .style("padding", "8px")
       .style("border-radius", "4px")

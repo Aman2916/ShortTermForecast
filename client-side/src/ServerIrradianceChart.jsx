@@ -122,7 +122,7 @@ const ServerIrradianceChart = () => {
   }, [selectedCity, selectedYear, selectedMonth, selectedTarget]);
 
   return (
-    <div className="p-4 bg-gray-900 text-white rounded-lg">
+    <div className="p-4 m-4 border-1 text-white rounded-lg">
       <h1 className="text-2xl mb-4">Solar Irradiance Data Visualization</h1>
 
       <div className="grid grid-cols-4 gap-4 mb-6">
@@ -131,11 +131,13 @@ const ServerIrradianceChart = () => {
           <select
             value={selectedCity}
             onChange={(e) => setSelectedCity(e.target.value)}
-            className="w-full p-2 bg-gray-800 rounded"
+            className="w-full p-2 bg-white/10 rounded"
           >
-            <option value="">Select City</option>
+            <option value="" className="bg-[#0b0449]">
+              Select City
+            </option>
             {cities.map((city) => (
-              <option key={city} value={city}>
+              <option key={city} value={city} className="bg-[#0b0449]">
                 {city}
               </option>
             ))}
@@ -147,11 +149,13 @@ const ServerIrradianceChart = () => {
           <select
             value={selectedYear}
             onChange={(e) => setSelectedYear(e.target.value)}
-            className="w-full p-2 bg-gray-800 rounded"
+            className="w-full p-2 bg-white/10 rounded"
           >
-            <option value="">Select Year</option>
+            <option value="" className="bg-[#0b0449]">
+              Select Year
+            </option>
             {years.map((year) => (
-              <option key={year} value={year}>
+              <option key={year} value={year} className="bg-[#0b0449]">
                 {year}
               </option>
             ))}
@@ -163,34 +167,46 @@ const ServerIrradianceChart = () => {
           <select
             value={selectedMonth}
             onChange={(e) => setSelectedMonth(e.target.value)}
-            className="w-full p-2 bg-gray-800 rounded"
+            className="w-full p-2 bg-white/10 rounded"
           >
-            <option value="">Select Month</option>
+            <option value="" className="bg-[#0b0449]">
+              Select Month
+            </option>
             {months.map((month) => (
-              <option key={month} value={month}>
+              <option key={month} value={month} className="bg-[#0b0449]">
                 {month}
               </option>
             ))}
           </select>
         </div>
 
-        <div>
+        <div className="">
           <label className="block mb-2">Target Variable:</label>
           <select
             value={selectedTarget}
             onChange={(e) => setSelectedTarget(e.target.value)}
-            className="w-full p-2 bg-gray-800 rounded"
+            className="w-full p-2 bg-white/10 rounded"
           >
-            <option value="">Select Target</option>
-            <option value="dni">DNI</option>
-            <option value="ghi">GHI</option>
-            <option value="dhi">DHI</option>
-            <option value="pv">PV</option>
+            <option value="" className="bg-[#0b0449]">
+              Select Target
+            </option>
+            <option value="dni" className="bg-[#0b0449]">
+              DNI
+            </option>
+            <option value="ghi" className="bg-[#0b0449]">
+              GHI
+            </option>
+            <option value="dhi" className="bg-[#0b0449]">
+              DHI
+            </option>
+            <option value="pv" className="bg-[#0b0449]">
+              PV
+            </option>
           </select>
         </div>
       </div>
 
-      <div className="bg-gray-800 p-4 rounded-lg">
+      <div className="p-4 rounded-lg">
         <Chart data={data} />
       </div>
     </div>
@@ -363,8 +379,7 @@ const Chart = ({ data, target }) => {
       ref={svgRef}
       width={800}
       height={400}
-      className="w-full"
-      style={{ background: "#1F2937" }}
+      className="w-full bg-white/5 border-2 border-white/10 rounded-lg"
     ></svg>
   );
 };

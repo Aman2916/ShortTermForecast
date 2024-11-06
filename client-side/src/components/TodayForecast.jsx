@@ -50,20 +50,29 @@ const TodayForecast = ({ weatherData }) => {
     });
 
   return (
-    <div className="today-forecast">
-      <h4>Today’s 24-Hour Forecast</h4>
-      <div className="hourly-forecast-container">
+    <div className="p-[15px] rounded-xl border-[1.5px] border-white/5">
+      <h2 className="font-bold text-green-500 text-lg">
+        Today's 24-Hour Forecast
+      </h2>
+      <div className="hourly-forecast-container flex px-3 py-2 overflow-x-scroll">
         {next24Hours.map((forecast, index) => (
-          <div className="hour-box" key={index}>
-            <div className="hour">{forecast.hour}:00</div>
-            <div className="temperature">
+          <div
+            className={`hour-box flex flex-col min-w-[100px] bg-white/5 rounded-lg p-2 mr-3 ${
+              currentHour == forecast.hour ? "border-2 border-yellow-500" : ""
+            } text-center text-white text-sm font-[14px] justify-center items-center gap-2`}
+            key={index}
+          >
+            <div className="flex font-bold text-center items-center text-teal-400 justify-center">
+              {forecast.hour}:00
+            </div>
+            <div className="flex temperature text-center items-center text-orange-400 justify-center gap-1">
               <FaTemperatureHigh /> {forecast.temperature}°C
             </div>
-            <div className="irradiance">
-              <WiDaySunny />{" "}
+            <div className="irradiance flex text-center items-center font-bold text-red-500 justify-center gap-1">
+              <WiDaySunny className="text-2xl" />{" "}
               {forecast.irradiance ? `${forecast.irradiance} W/m²` : "N/A"}
             </div>
-            <div className="weather-icon">
+            <div className="weather-icon flex">
               {/* Optional: Display weather icons based on weatherCode */}
               {forecast.weatherCode ? getWeatherIcon(forecast.weatherCode) : ""}
             </div>
