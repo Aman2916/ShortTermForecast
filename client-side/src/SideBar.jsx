@@ -14,20 +14,20 @@ import Weather from "./Weather"; // Weather component
 function SideBar() {
   return (
     <Container fluid>
-      <Row>
+      <Row className="pr-4 pb-4">
         {/* Sidebar Column */}
         <Col xs={2} className="p-0">
-          <div
-            className="sidebar vh-100 p-3"
-            style={{ backgroundColor: "#17193b" }}
-          >
-            <h5 className="text-white mb-4">
+          <div className="sidebar vh-100 p-3 bg-white/5 rounded-3xl">
+            <h5 className="text-white font-bold text-lg mb-4 flex justify-start items-center">
               <FontAwesomeIcon className="me-2" icon={faHome} />
-              Dashboard
+              <span>Dashboard</span>
             </h5>
-            <Nav className="flex-column">
+            <Nav className="flex-column flex justify-center">
               <Nav.Item className="mb-3">
-                <Nav.Link href="/weather" className="sidebar-item text-white">
+                <Nav.Link
+                  href="/weather"
+                  className="sidebar-item text-white flex items-center justify-start px-2"
+                >
                   <FontAwesomeIcon icon={faHome} className="me-2" />
                   <Link to="/weather">Weather</Link>
                 </Nav.Link>
@@ -35,14 +35,17 @@ function SideBar() {
               <Nav.Item className="mb-3">
                 <Nav.Link
                   href="/historicaldata"
-                  className="sidebar-item text-white"
+                  className="sidebar-item text-white flex items-center justify-start px-2"
                 >
                   <FontAwesomeIcon icon={faChartBar} className="me-2" />{" "}
                   <Link to="/historicaldata">Historical Data</Link>
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item className="mb-3">
-                <Nav.Link href="/settings" className="sidebar-item text-white">
+                <Nav.Link
+                  href="/settings"
+                  className="sidebar-item text-white flex items-center justify-start px-2"
+                >
                   <FontAwesomeIcon icon={faCog} className="me-2" />
                   <Link to="/daily-irradiance">Daily Visualization</Link>
                 </Nav.Link>
@@ -52,13 +55,11 @@ function SideBar() {
         </Col>
 
         {/* Main Content Column */}
-        <Col
-          xs={10}
-          className="content-area"
-          style={{ backgroundColor: "#17193b" }}
-        >
-          <div className="p-4" style={{ color: "grey" }}>
+        <Col xs={10} className="">
+          <span className="text-green-600 font-bold text-xl">
             <h2>Global Solar Irradiance </h2>
+          </span>
+          <div className="content bg-white/10 border-2 border-yellow-500 rounded-3xl">
             <WorldMap />
 
             {/* You can add more content here */}

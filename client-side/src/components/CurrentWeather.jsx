@@ -6,16 +6,34 @@ const CurrentWeather = ({ weatherData, location }) => {
   const currentTemperature =
     weatherData.hourly.temperature_2m[new Date().getHours()];
   const currentWeatherCode = weatherData.hourly.weather_code[currentHourIndex];
+  const currentDate = `Date: ${new Date().getDate()}, Time: ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`;
+  console.log("date: ", currentDate);
+  const currentTimezone = weatherData.timezone;
   return (
-    <Card className="mb-3">
-      <Card.Body>
-        <h3>{location}</h3>
-        <p>Current Temperature: {currentTemperature}°C</p>
-        <p>
-          Weather: {getWeatherIcon(currentWeatherCode)} {}
-        </p>
-      </Card.Body>
-    </Card>
+    <div className="text-white p-3 pt-0">
+      <div className="flex flex-col text-lg justify-center items-center">
+        <div className="font-bold p-2 text-xl text-green-500">
+          <span>Current Weather</span>
+        </div>
+        <div className="flex gap-20 text-sm items-center">
+          <div className="flex flex-col justify-center items-center gap-2">
+            <span className="text-yellow-400">{currentTimezone}</span>
+            <span>{currentDate}</span>
+          </div>
+          <div className="flex flex-col justify-center items-center gap-2">
+            <span className="text-yellow-400">Temperature</span>
+            <span>{currentTemperature}°C</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-yellow-400">Weather </span>
+
+            <span className="text-3xl">
+              {getWeatherIcon(currentWeatherCode)} {}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 
   //Helper function to return an emoji based on weather code (optional)

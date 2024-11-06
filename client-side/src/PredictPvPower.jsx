@@ -115,20 +115,20 @@ function PredictPVPower() {
   };
 
   return (
-    <div className="w-full max-w-4xl bg-gray-900/80 rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full max-w-4xl border-1 mb-6 border-white bg-white/5 rounded-xl shadow-lg overflow-hidden">
       <div className="p-6">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-semibold text-gray-100">
+          <h2 className="text-xl font-bold text-green-500">
             PV Power Prediction
           </h2>
           <button
             onClick={handlePredict}
             disabled={loading}
-            className={`px-4 py-2 rounded-md text-sm font-medium text-white transition-colors
+            className={`px-3 py-2 rounded-md text-sm font-medium text-white transition-colors
               ${
                 loading
-                  ? "bg-blue-500 cursor-not-allowed opacity-70"
-                  : "bg-blue-600 hover:bg-blue-700 active:bg-blue-800"
+                  ? "border-1 cursor-not-allowed opacity-70"
+                  : "border-1 hover:bg-blue-700 active:bg-blue-800"
               }`}
           >
             {loading ? (
@@ -161,7 +161,7 @@ function PredictPVPower() {
           </button>
         </div>
 
-        <div className="h-64 w-full bg-gray-800/50 rounded-lg p-4">
+        <div className="h-64 w-full bg-white/10 rounded-lg p-4">
           {predictedPV ? (
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart

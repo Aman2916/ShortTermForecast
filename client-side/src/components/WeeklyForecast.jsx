@@ -15,28 +15,44 @@ const WeeklyForecast = ({ weatherData }) => {
   console.log("Daily Irradiation:", dailyIrradiation);
 
   return (
-    <div className="weekly-forecast">
-      <h4>Weekly Forecast</h4>
-      {daily.time.map((day, index) => (
-        <div className="weekly-forecast-item" key={day}>
-          <div className="weekly-forecast-day">
-            {new Date(day).toLocaleDateString("en-US", { weekday: "long" })}
+    <div className="text-white w-full p-4 pt-0">
+      <h2 className="font-bold text-xl p-2 pt-0 text-green-500">
+        Weekly Forecast
+      </h2>
+      <div className="flex text-sm flex-col gap-1">
+        {daily.time.map((day, index) => (
+          <div
+            className={`weekly-forecast-item ${
+              new Date(day).toLocaleDateString("en-US", { weekday: "long" }) ===
+              new Date().toLocaleDateString("en-US", { weekday: "long" })
+                ? "border-2 border-yellow-500"
+                : ""
+            } flex justify-between px-4 rounded-xl inset-0 bg-white/10 p-2`}
+            key={day}
+          >
+            <div>
+              <div className="weekly-forecast-day">
+                {new Date(day).toLocaleDateString("en-US", { weekday: "long" })}
+              </div>
+              <div className="weekly-forecast-wind">
+                {Math.floor(dailyIrradiation[day] / 24)} W/m2
+              </div>
+            </div>
+            <div>
+              <div className="weekly-forecast-icon">
+                {getWeatherIcon(daily.weather_code[index])}
+              </div>
+              <div className="weekly-forecast-temp">
+                {daily.temperature_2m_max[index]}° /{" "}
+                {daily.temperature_2m_min[index]}°
+              </div>
+            </div>
+            <div className="weekly-forecast-wind">
+              💨 {daily.precipitation_sum[index]} mm
+            </div>
           </div>
-          <div className="weekly-forecast-wind">
-            {Math.floor(dailyIrradiation[day] / 24)} W/m2
-          </div>
-          <div className="weekly-forecast-icon">
-            {getWeatherIcon(daily.weather_code[index])}
-          </div>
-          <div className="weekly-forecast-temp">
-            {daily.temperature_2m_max[index]}° /{" "}
-            {daily.temperature_2m_min[index]}°
-          </div>
-          <div className="weekly-forecast-wind">
-            💨 {daily.precipitation_sum[index]} mm
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

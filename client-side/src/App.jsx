@@ -8,6 +8,7 @@ import {
 import SideBar from "./SideBar";
 import NavBar from "./NavBar";
 import { WeatherProvider } from "./WeatherContext";
+import BackgroundImage from "./components/Backgroundimage";
 
 const LazyLoadedWeather = React.lazy(() => import("./Weather"));
 const LazyLoadedServerIrradianceChart = React.lazy(() =>
@@ -18,10 +19,15 @@ const LazyIndianSolarMap = React.lazy(() => import("./IndianSolarMap"));
 function App() {
   return (
     <Router>
-      <WeatherProvider>
-        <NavBar />
-        <MainLayout />
-      </WeatherProvider>
+      <div className="min-h-screen">
+        <div className="w-full border-[1.5px] min-h-screen flex flex-col border-white rounded-2xl">
+          <BackgroundImage image={"url('/imgs/bg.jpg')"} />
+          <WeatherProvider>
+            <NavBar />
+            <MainLayout />
+          </WeatherProvider>
+        </div>
+      </div>
     </Router>
   );
 }

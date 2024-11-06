@@ -9,18 +9,31 @@ const AirConditions = ({ weatherData }) => {
   const cloudCover = weatherData.hourly.cloud_cover_mid[new Date().getHours()];
 
   return (
-    <Card className="mb-3">
-      <Card.Body>
-        <h5>Air Conditions</h5>
-        <p>
-          Real Feel:{" "}
-          {weatherData.hourly.apparent_temperature[new Date().getHours()]}°C
-        </p>
-        <p>Wind Speed: {windSpeed} m/s</p>
-        <p>Clouds: {cloudCover}%</p>
-        <p>Humidity: {humidity}%</p>
-      </Card.Body>
-    </Card>
+    <div className="mb-3 text-white p-2">
+      <div className="flex flex-col gap-2 items-center">
+        <h2 className="font-bold text-xl text-green-500">Air Conditions</h2>
+        <div className="flex gap-20">
+          <div className="flex flex-col gap-1 items-center">
+            <p className="text-yellow-300">Real Feel </p>
+            <p>
+              {weatherData.hourly.apparent_temperature[new Date().getHours()]}°C
+            </p>
+          </div>
+          <div className="flex flex-col gap-1 items-center">
+            <p className="text-yellow-300">Wind Speed</p>
+            <p> {windSpeed} m/s</p>
+          </div>
+          <div className="flex flex-col gap-1 items-center">
+            <p className="text-yellow-300">Clouds</p>
+            <p> {cloudCover}%</p>
+          </div>
+          <div className="flex flex-col gap-1 items-center">
+            <p className="text-yellow-300">Humidity</p>
+            <p> {humidity}%</p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
