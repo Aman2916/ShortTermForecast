@@ -5,7 +5,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const { spawn } = require("child_process");
 const PORT = 5000;
-
+const mongoose = require("mongoose");
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
@@ -82,9 +82,9 @@ app.post("/api/predict", (req, res) => {
       res.status(500).json({ error: error });
     } else {
       try {
-        const parsedResult = JSON.parse(result); // Confirm JSON parsing
+        const parsedResult = JSON.parse(result);
         console.log("Parsed Result:", parsedResult);
-        res.json(parsedResult); // Send parsed data
+        res.json(parsedResult);
       } catch (parseError) {
         console.error("JSON Parse Error:", parseError);
         res.status(500).json({ error: "Invalid JSON from Python script" });
@@ -94,6 +94,35 @@ app.post("/api/predict", (req, res) => {
 
   pythonProcess.stdin.write(JSON.stringify(inputFeatures));
   pythonProcess.stdin.end();
+});
+
+mongoose
+  .connect("mongodb://localhost:27017/userDB", {})
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.error(err));
+
+// User schema and model
+const userSchema = new mongoose.Schema({
+  username: String,
+  password: String, // Plain password for demo
+});
+
+const User = mongoose.model("User", userSchema);
+
+// Login route
+app.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    const user = await User.findOne({ username, password }); // Plain match for demo
+    if (user) {
+      res.status(200).json({ msg: "Login successful" });
+    } else {
+      res.status(401).json({ msg: "Invalid username or password" });
+    }
+  } catch (err) {
+    res.status(500).json({ msg: "Server error", error: err.message });
+  }
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

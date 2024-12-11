@@ -29,7 +29,6 @@ const Forecast = () => {
       .slice(0, 24);
   };
 
-  // Scroll Handlers
   const scrollLeft = () => setScrollPosition((prev) => Math.max(prev - 1, 0));
   const scrollRight = () =>
     setScrollPosition((prev) => Math.min(prev + 1, forecastData.length - 6));

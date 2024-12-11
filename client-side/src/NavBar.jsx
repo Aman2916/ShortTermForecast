@@ -5,6 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { BrowserRouter, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./App.scss";
 function NavScrollExample() {
   return (
@@ -59,7 +60,7 @@ function NavScrollExample() {
                 aria-label="Search"
               /> */}
               <Button variant="outline-success text-white text-center bg-green-600 border-2 border-green-600 rounded-full font-bold">
-                Login
+                <Link to="/login">Login</Link>
               </Button>
             </Form>
           </div>
