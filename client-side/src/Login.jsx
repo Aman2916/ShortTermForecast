@@ -5,15 +5,12 @@ import "./Login.css";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // Used to redirect after successful login
-
+  const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Basic validation for this demo
     if (username && password) {
-      // Redirect to home page after successful login
-      navigate("/"); // Replace "/weather" with your home page route
+      navigate("/");
     } else {
       alert("Please enter both username and password");
     }
@@ -31,7 +28,7 @@ function Login() {
             placeholder="Enter username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            style={{ color: "#333" }} // Explicitly set text color to black
+            style={{ color: "#333" }}
           />
         </div>
         <div className="form-group">
@@ -42,7 +39,7 @@ function Login() {
             placeholder="Enter password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            style={{ color: "#333" }} // Explicitly set text color to black
+            style={{ color: "#333" }}
           />
         </div>
         <button type="submit" className="login-button">
