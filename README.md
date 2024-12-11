@@ -1,0 +1,2 @@
+Solar Forecasting & PV Power Prediction App <br>
+This web application predicts solar irradiance (DNI, DHI, GHI) and photovoltaic (PV) power generation based on weather forecasts. It allows users to view historical solar data, forecast irradiance, and predict power output for various locations. The app uses weather APIs, data simulations, and interactive charts to provide valuable insights for solar energy predictions.<br>
