@@ -7,6 +7,10 @@ const ServerIrradianceChart = () => {
     Indore: 1,
     Delhi: 2,
     Assam: 3,
+    Mumbai: 4,
+    Jaipur: 5,
+    Kolkata: 6,
+    Bengaluru: 7,
   };
 
   const [selectedCity, setSelectedCity] = useState("");
@@ -16,7 +20,15 @@ const ServerIrradianceChart = () => {
   const [data, setData] = useState({ original: [], movingAvg: [] });
   const [error, setError] = useState(null);
 
-  const cities = ["Indore", "Delhi", "Assam"];
+  const cities = [
+    "Indore",
+    "Delhi",
+    "Assam",
+    "Mumbai",
+    "Jaipur",
+    "Kolkata",
+    "Bengaluru",
+  ];
   const years = [2020, 2021, 2022, 2023, 2024];
   const months = [
     "January",
@@ -43,7 +55,7 @@ const ServerIrradianceChart = () => {
       dni: { min: 0, max: 1200 }, // Direct Normal Irradiance typical range
       ghi: { min: 0, max: 1000 }, // Global Horizontal Irradiance typical range
       dhi: { min: 0, max: 600 }, // Diffuse Horizontal Irradiance typical range
-      pv: { min: 0, max: 2000 }, // PV output typical range
+      // PV output typical range
     };
 
     const range = valueRanges[selectedTarget.toLowerCase()] || {
@@ -198,9 +210,6 @@ const ServerIrradianceChart = () => {
             </option>
             <option value="dhi" className="bg-[#0b0449]">
               DHI
-            </option>
-            <option value="pv" className="bg-[#0b0449]">
-              PV
             </option>
           </select>
         </div>

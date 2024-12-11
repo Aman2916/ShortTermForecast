@@ -143,7 +143,6 @@ const SolarIrradianceChart = ({ csvData }) => {
     });
   };
 
-  // Early return if no data
   if (!processedData || processedData.length === 0) {
     return (
       <div className="w-full bg-black text-white p-6 rounded-lg">

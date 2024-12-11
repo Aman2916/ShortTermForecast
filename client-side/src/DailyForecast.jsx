@@ -1,5 +1,4 @@
 import React from "react";
-// import "./DailyForecast.css";
 
 const DailyForecast = ({ dailyData }) => {
   return (

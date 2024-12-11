@@ -23,7 +23,7 @@ fs.createReadStream("merged_preprocessed_datas1.csv")
     console.log("CSV file processed");
   });
 
-app.get("/api", (req, res) => {
+app.get("/api/irradiance", (req, res) => {
   const { city, year, month, target } = req.query;
   console.log("Parameters received:", city, year, month, target);
 

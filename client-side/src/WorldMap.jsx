@@ -85,10 +85,10 @@ const WorldMap = () => {
             `<strong>${d.properties.SOVEREIGNT}</strong><br/>
             Avg Daily Irradiance: <strong>${
               d.properties.avgDailyGHI ?? "Data not Available"
-            }</strong><br/>
+            } W/m2</strong><br/>
                Avg Yearly Irradiance: <strong>${
                  d.properties.avgYearlyGHI ?? "Data not Available"
-               }</strong>`
+               } W/m2</strong>`
           )
           .style("left", `${event.pageX + 10}px`)
           .style("top", `${event.pageY - 28}px`);

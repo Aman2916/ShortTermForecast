@@ -231,7 +231,7 @@ const MapboxIndiaSolar = () => {
                     {...viewState}
                     onMove={(evt) => setViewState(evt.viewState)}
                     mapStyle="mapbox://styles/mapbox/dark-v11"
-                    mapboxAccessToken="pk.eyJ1IjoiYW1hbjI5MTYiLCJhIjoiY20yejBsbXNvMDViZjJqczNmNW4xbnRsOSJ9.3u92kYPA5pTdGFsaFtvRmA"
+                    mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
                     style={{ width: "100%", height: "100%" }}
                   >
                     {/* Connection lines */}
