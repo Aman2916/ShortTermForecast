@@ -17,6 +17,7 @@ function Weather() {
   const [location, setLocation] = useState("");
 
   const handleSearch = async (latitude, longitude) => {
+    console.log("searching location");
     try {
       const response = await axios.get(OPEN_METEO_URL, {
         params: {

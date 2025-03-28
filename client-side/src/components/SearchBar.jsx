@@ -14,9 +14,10 @@ const SearchBar = ({ onSearch }) => {
       const response = await fetch(
         `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(
           city
-        )}&key=08260aa036494c0e9007d809ede7f0e8`
+        )}&key=${import.meta.env.VITE_OPENCAGED_API_KEY}`
       );
       const data = await response.json();
+      console.log(data);
       if (data.results.length > 0) {
         const { lat, lng } = data.results[0].geometry;
         setLatitude(lat);

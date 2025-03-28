@@ -43,7 +43,7 @@ export const getCoordinates = async (cityName) => {
     const response = await axios.get(GEOCODE_URL, {
       params: {
         q: cityName,
-        key: "08260aa036494c0e9007d809ede7f0e8",
+        key: `${import.meta.env.VITE_OPENCAGED_API_KEY}`,
         limit: 1,
       },
     });

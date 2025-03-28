@@ -1,13 +1,25 @@
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { BrowserRouter, NavLink } from "react-router-dom";
+
 import { Link } from "react-router-dom";
 import "./App.scss";
 function NavScrollExample() {
+  const [log, setLog] = useState("Login");
+
+  const handleClick = () => {
+    setTimeout(() => {
+      if (log === "Login") {
+        setLog("Logout");
+      } else {
+        setLog("Login");
+      }
+    }, 7000);
+  };
   return (
     <Navbar expand="lg" className="text-white">
       <Container fluid>
@@ -59,9 +71,13 @@ function NavScrollExample() {
                 className="rounded-l-full border-2 border-green-600 bg-transparent placeholder-green-600 focus:outline-none focus:text-green-600"
                 aria-label="Search"
               /> */}
-              <Button variant="outline-success text-white text-center bg-green-600 border-2 border-green-600 rounded-full font-bold">
-                <Link to="/login">Login</Link>
-              </Button>
+              {/* <Button variant="outline-success text-white text-center bg-green-600 border-2 border-green-600 rounded-full font-bold"> */}
+              <Link to="/login" onClick={handleClick}>
+                <Button variant="outline-success text-white text-center bg-green-600 border-2 border-green-600 rounded-full font-bold">
+                  {log}
+                </Button>
+              </Link>
+              {/* </Button> */}
             </Form>
           </div>
         </Navbar.Collapse>

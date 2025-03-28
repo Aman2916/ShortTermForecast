@@ -74,8 +74,7 @@ import SideBar from "./SideBar";
 import NavBar from "./NavBar";
 import { WeatherProvider } from "./WeatherContext";
 import BackgroundImage from "./components/Backgroundimage";
-import Login from "./Login"; // Importing the Login component
-
+import Login from "./Login";
 const LazyLoadedWeather = React.lazy(() => import("./Weather"));
 const LazyLoadedServerIrradianceChart = React.lazy(() =>
   import("./ServerIrradianceChart")
@@ -102,7 +101,7 @@ function MainLayout() {
   const location = useLocation();
 
   const hideSidebarRoutes = [
-    "/login", // Add login to hidden sidebar routes
+    "/login",
     "/weather",
     "/historicaldata",
     "/daily-irradiance",
@@ -116,7 +115,7 @@ function MainLayout() {
       <div className={`content ${isSidebarHidden ? "full-width" : ""}`}>
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
-            <Route path="/login" element={<Login />} /> {/* Add Login route */}
+            <Route path="/login" element={<Login />} />
             <Route path="/weather" element={<LazyLoadedWeather />} />
             <Route
               path="/historicaldata"
